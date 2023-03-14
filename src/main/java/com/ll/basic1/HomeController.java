@@ -6,12 +6,41 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller //개발자가 스프링부트에게 말한다. 아래있는 HomeController는 컨트롤러다
 public class HomeController {
+   private int con;
     //만약 /home/main 이런 요청오면 아래 메서드 실행해
+    public HomeController() {
+        con = -1;
+    }
     @GetMapping("/home/main")
-    //responsebody 아래 메서드를 실행한후 그 리턴값으 응답으로 삼아줘
+    //responsebody 아래 메서드를 실행한후 그 리턴값을 응답으로 삼아줘
     @ResponseBody
     public String showMain() {
-        return "안녕하세요~~";
+        return "안녕하세요^^";
     }
+
+    @GetMapping("/home/main2")
+    //responsebody 아래 메서드를 실행한후 그 리턴값으 응답으로 삼아줘
+    @ResponseBody
+    public String showMain1() {
+        return "반갑습니다.";
+    }
+
+    @GetMapping("/home/main3")
+    //responsebody 아래 메서드를 실행한후 그 리턴값으 응답으로 삼아줘
+    @ResponseBody
+    public String showMain3() {
+        return "즐거웠습니다.";
+    }
+
+    @GetMapping("/home/increase")
+    //responsebody 아래 메서드를 실행한후 그 리턴값으 응답으로 삼아줘
+    @ResponseBody
+    public int showincrease() { //리턴되는 int 값은 String화 되서 고객(브라우저)에게 전달된다.
+        con++;
+        return con;
+
+    }
+
+
 
 }
